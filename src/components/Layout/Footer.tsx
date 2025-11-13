@@ -1,0 +1,160 @@
+import { Link } from "react-router-dom";
+import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+
+const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
+  return (
+    <footer className="bg-primary text-primary-foreground">
+      <div className="container mx-auto px-4 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+          {/* About Section */}
+          <div>
+            <h3 className="text-xl font-bold mb-4 text-secondary">CFPAM GROUP</h3>
+            <p className="text-sm text-primary-foreground/80 mb-4">
+              Centre de Formation Professionnelle des Arts et Métiers - Votre partenaire de
+              confiance pour la formation et l'excellence depuis 2015.
+            </p>
+            <div className="flex gap-4">
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-secondary transition-colors"
+                aria-label="Facebook"
+              >
+                <Facebook className="w-5 h-5" />
+              </a>
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-secondary transition-colors"
+                aria-label="Instagram"
+              >
+                <Instagram className="w-5 h-5" />
+              </a>
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-secondary transition-colors"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="w-5 h-5" />
+              </a>
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4 text-secondary">Liens Rapides</h3>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link to="/centre-formation" className="hover:text-secondary transition-colors">
+                  Centre de Formation
+                </Link>
+              </li>
+              <li>
+                <Link to="/auto-ecole" className="hover:text-secondary transition-colors">
+                  Auto-École Ange Raphaël
+                </Link>
+              </li>
+              <li>
+                <Link to="/cooperative" className="hover:text-secondary transition-colors">
+                  Coopérative
+                </Link>
+              </li>
+              <li>
+                <Link to="/etudiants" className="hover:text-secondary transition-colors">
+                  Liste des Étudiants
+                </Link>
+              </li>
+              <li>
+                <Link to="/actualites" className="hover:text-secondary transition-colors">
+                  Actualités
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Nos Services */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4 text-secondary">Nos Services</h3>
+            <ul className="space-y-2 text-sm">
+              <li className="hover:text-secondary transition-colors cursor-pointer">
+                Formations Diplômantes
+              </li>
+              <li className="hover:text-secondary transition-colors cursor-pointer">
+                Permis de Conduire
+              </li>
+              <li className="hover:text-secondary transition-colors cursor-pointer">
+                Services Coopératifs
+              </li>
+              <li className="hover:text-secondary transition-colors cursor-pointer">
+                Cours du Jour & Soir
+              </li>
+              <li className="hover:text-secondary transition-colors cursor-pointer">
+                Formation Continue
+              </li>
+            </ul>
+          </div>
+
+          {/* Contact Info */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4 text-secondary">Contact</h3>
+            <ul className="space-y-3 text-sm">
+              <li className="flex items-start gap-2">
+                <MapPin className="w-5 h-5 flex-shrink-0 mt-0.5 text-secondary" />
+                <span>Ekonou, en face lieu dit "entrée Gazolent", Yaoundé, Cameroun</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <Phone className="w-5 h-5 flex-shrink-0 text-secondary" />
+                <div>
+                  <a href="tel:+237655511512" className="hover:text-secondary transition-colors">
+                    655 511 512
+                  </a>
+                  {" / "}
+                  <a href="tel:+237677401841" className="hover:text-secondary transition-colors">
+                    677 401 841
+                  </a>
+                </div>
+              </li>
+              <li className="flex items-center gap-2">
+                <Mail className="w-5 h-5 flex-shrink-0 text-secondary" />
+                <a
+                  href="mailto:contact@cfpam-group.cm"
+                  className="hover:text-secondary transition-colors"
+                >
+                  contact@cfpam-group.cm
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="border-t border-primary-foreground/20 pt-8 mt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
+            <p className="text-primary-foreground/80">
+              © {currentYear} CFPAM GROUP. Tous droits réservés.
+            </p>
+            <div className="flex gap-6">
+              <Link to="/mentions-legales" className="hover:text-secondary transition-colors">
+                Mentions Légales
+              </Link>
+              <Link to="/confidentialite" className="hover:text-secondary transition-colors">
+                Confidentialité
+              </Link>
+              <Link to="/conditions" className="hover:text-secondary transition-colors">
+                Conditions
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;

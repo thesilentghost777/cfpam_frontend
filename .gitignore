@@ -1,0 +1,45 @@
+# Node modules
+node_modules/
+
+# Build output
+dist/
+build/
+
+# Local environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor directories and files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# macOS / Linux system files
+.DS_Store
+Thumbs.db
+
+# Optional: if you use testing or coverage tools
+coverage/
+
+# Optional: if you use eslint cache
+.eslintcache
+
+# Optional: if you use React Native or Expo (can be ignored for web)
+.expo/
+.expo-shared/
+
+# Optional: lock files (if using only one package manager, ignore the rest)
+# Uncomment one of these if you prefer
+# yarn.lock
+# package-lock.json
+# pnpm-lock.yaml
