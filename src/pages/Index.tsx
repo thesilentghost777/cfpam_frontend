@@ -6,32 +6,54 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const Index = () => {
   const stats = [
-    { icon: Users, value: "5000+", label: "Étudiants Formés" },
-    { icon: Award, value: "15+", label: "Formations Disponibles" },
+    { icon: Users, value: "5000+", label: "Jeunes Encadrés" },
+    { icon: Award, value: "15+", label: "Programmes Disponibles" },
     { icon: BookOpen, value: "98%", label: "Taux de Réussite" },
     { icon: TrendingUp, value: "10 ans", label: "D'Excellence" },
   ];
 
-  const advantages = [
+  const offres = [
     {
-      icon: Laptop,
-      title: "1 Apprenant = 1 Laptop Offert",
-      description: "Chaque étudiant reçoit un ordinateur portable pour faciliter sa formation",
-    },
-    {
-      icon: Users,
-      title: "Stage & Intégration Garantis",
-      description: "Nous assurons un stage professionnel et facilitons votre insertion",
-    },
-    {
-      icon: Heart,
-      title: "Programme Gagnant-Gagnant",
-      description: "Parrainez un ami et bénéficiez de réductions sur votre formation",
+      icon: BookOpen,
+      title: "Centre de Formation",
+      subtitle: "Arts et Métiers",
+      description: "Formations professionnelles certifiantes dans 8 filières : Secrétariat, Audiovisuel, Digital, Beauté, Gestion, Comptabilité, Commerce, Informatique",
+      features: [
+        "AQP, CQP, DQP et BTS",
+        "1 Laptop offert par apprenant",
+        "Stage et insertion garantis",
+        "Formations cours du jour et du soir"
+      ],
+      color: "from-formation-primary to-formation-secondary",
+      link: "/centre-formation"
     },
     {
       icon: Award,
-      title: "Diplômes Reconnus",
-      description: "Formations certifiées par l'État avec agrément officiel",
+      title: "Auto-École Ange Raphaël",
+      subtitle: "Permis A et B",
+      description: "Formation complète au permis de conduire avec système de parrainage unique pour obtenir votre permis GRATUITEMENT",
+      features: [
+        "Permis B : 52,500 FCFA au lieu de 250,000",
+        "Permis A : 27,800 FCFA au lieu de 75,000",
+        "Système de parrainage gratuit",
+        "Taux de réussite > 90%"
+      ],
+      color: "from-autoecole-primary to-autoecole-accent",
+      link: "/auto-ecole"
+    },
+    {
+      icon: Users,
+      title: "Coopérative COPCA",
+      subtitle: "Ensemble pour Réussir",
+      description: "Épargne et financement pour étudiants CFPAM et externes. Financement de projets entrepreneuriaux et acquisition de véhicules",
+      features: [
+        "Étudiants : Financement du double de l'épargne",
+        "Externes : Acquisition de voiture en 1 an",
+        "Cotisation : 60,000 FCFA/semaine",
+        "Accompagnement personnalisé"
+      ],
+      color: "from-cooperative-primary to-cooperative-secondary",
+      link: "/cooperative"
     },
   ];
 
@@ -74,30 +96,89 @@ const Index = () => {
               Bienvenue chez <span className="text-gradient">CFPAM GROUP</span>
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Depuis 2015, le CFPAM GROUP s’impose comme un acteur majeur du développement professionnel au Cameroun. Composé d’un centre de formation, d’une auto-école et d’une coopérative, notre groupe œuvre pour l’épanouissement personnel et professionnel de chaque apprenant.
-Notre mission est de former, accompagner et autonomiser les individus en leur offrant des compétences concrètes, un encadrement de qualité et des opportunités réelles d’insertion socio-économique. Grâce à une équipe dynamique et à des programmes innovants, nous transformons les ambitions en réussites durables.
+              Depuis 2015, le CFPAM GROUP s'engage à offrir des solutions complètes pour votre développement professionnel et personnel au Cameroun. Formation professionnelle, permis de conduire et accompagnement entrepreneurial : nous transformons vos ambitions en réussites concrètes.
             </p>
           </div>
 
-          {/* Advantages Grid */}
+          {/* Nos 3 Offres */}
+          <div className="mb-16">
+            <h3 className="text-3xl font-bold text-center mb-12">Nos 3 Offres</h3>
+            <div className="grid md:grid-cols-3 gap-8">
+              {offres.map((offre, index) => {
+                const Icon = offre.icon;
+                return (
+                  <Card
+                    key={index}
+                    className="hover-lift border-2 hover:border-primary transition-all"
+                  >
+                    <CardContent className="p-6">
+                      <div className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br ${offre.color} rounded-full mb-4`}>
+                        <Icon className="w-8 h-8 text-white" />
+                      </div>
+                      <h3 className="text-2xl font-bold mb-1">{offre.title}</h3>
+                      <p className="text-sm text-muted-foreground font-semibold mb-3">{offre.subtitle}</p>
+                      <p className="text-sm text-muted-foreground mb-4">{offre.description}</p>
+                      
+                      <div className="space-y-2 mb-6">
+                        {offre.features.map((feature, idx) => (
+                          <div key={idx} className="flex items-start gap-2">
+                            <span className="text-primary mt-1">✓</span>
+                            <span className="text-sm">{feature}</span>
+                          </div>
+                        ))}
+                      </div>
+
+                      <Button asChild className="w-full">
+                        <Link to={offre.link}>En Savoir Plus</Link>
+                      </Button>
+                    </CardContent>
+                  </Card>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Avantages Globaux */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            {advantages.map((advantage, index) => {
-              const Icon = advantage.icon;
-              return (
-                <Card
-                  key={index}
-                  className="hover-lift border-2 hover:border-primary transition-all"
-                >
-                  <CardContent className="p-6 text-center">
-                    <div className="inline-flex items-center justify-center w-16 h-16 bg-secondary rounded-full mb-4">
-                      <Icon className="w-8 h-8 text-secondary-foreground" />
-                    </div>
-                    <h3 className="text-lg font-semibold mb-2">{advantage.title}</h3>
-                    <p className="text-sm text-muted-foreground">{advantage.description}</p>
-                  </CardContent>
-                </Card>
-              );
-            })}
+            <Card className="hover-lift border-2 hover:border-primary transition-all">
+              <CardContent className="p-6 text-center">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-secondary rounded-full mb-4">
+                  <Laptop className="w-8 h-8 text-secondary-foreground" />
+                </div>
+                <h3 className="text-lg font-semibold mb-2">1 Apprenant = 1 Laptop</h3>
+                <p className="text-sm text-muted-foreground">Ordinateur portable offert pour chaque étudiant</p>
+              </CardContent>
+            </Card>
+
+            <Card className="hover-lift border-2 hover:border-primary transition-all">
+              <CardContent className="p-6 text-center">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-secondary rounded-full mb-4">
+                  <Award className="w-8 h-8 text-secondary-foreground" />
+                </div>
+                <h3 className="text-lg font-semibold mb-2">Permis Gratuit</h3>
+                <p className="text-sm text-muted-foreground">Système de parrainage pour permis gratuit</p>
+              </CardContent>
+            </Card>
+
+            <Card className="hover-lift border-2 hover:border-primary transition-all">
+              <CardContent className="p-6 text-center">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-secondary rounded-full mb-4">
+                  <Users className="w-8 h-8 text-secondary-foreground" />
+                </div>
+                <h3 className="text-lg font-semibold mb-2">Stage et Insertion</h3>
+                <p className="text-sm text-muted-foreground">Stage professionnel et insertion garantis</p>
+              </CardContent>
+            </Card>
+
+            <Card className="hover-lift border-2 hover:border-primary transition-all">
+              <CardContent className="p-6 text-center">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-secondary rounded-full mb-4">
+                  <TrendingUp className="w-8 h-8 text-secondary-foreground" />
+                </div>
+                <h3 className="text-lg font-semibold mb-2">Financement Projet</h3>
+                <p className="text-sm text-muted-foreground">Coopérative pour financer vos projets</p>
+              </CardContent>
+            </Card>
           </div>
 
           {/* CTA */}
@@ -120,25 +201,41 @@ Notre mission est de former, accompagner et autonomiser les individus en leur of
             <h2 className="text-3xl md:text-5xl font-bold mb-8">Pourquoi Nous Choisir ?</h2>
             <div className="grid md:grid-cols-3 gap-8 mb-12">
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
-                <div className="text-5xl font-bold text-secondary mb-2">Coût Réduit</div>
-                <p className="text-lg">Formations accessibles avec subventions disponibles</p>
+                <div className="text-5xl font-bold text-secondary mb-2">3 en 1</div>
+                <p className="text-lg">Formation + Permis + Financement dans un seul groupe</p>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
-                <div className="text-5xl font-bold text-secondary mb-2">1 = 1</div>
-                <p className="text-lg">Un apprenant = Un laptop = Un emploi garanti</p>
+                <div className="text-5xl font-bold text-secondary mb-2">10 ans</div>
+                <p className="text-lg">D'excellence et d'accompagnement depuis 2015</p>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
                 <div className="text-5xl font-bold text-secondary mb-2">Agréé</div>
                 <p className="text-lg">Agrément N° 071/MINEFOPVSG/DFOP/SDGSF/SACD</p>
               </div>
             </div>
-            <Button
-              asChild
-              size="lg"
-              className="bg-secondary text-secondary-foreground hover:bg-secondary-light text-lg px-8 py-6"
-            >
-              <Link to="/centre-formation">Découvrir Nos Formations</Link>
-            </Button>
+            <div className="flex flex-wrap gap-4 justify-center">
+              <Button
+                asChild
+                size="lg"
+                className="bg-secondary text-secondary-foreground hover:bg-secondary-light text-lg px-8 py-6"
+              >
+                <Link to="/centre-formation">Centre de Formation</Link>
+              </Button>
+              <Button
+                asChild
+                size="lg"
+                className="bg-white/20 hover:bg-white/30 text-white text-lg px-8 py-6"
+              >
+                <Link to="/auto-ecole">Auto-École</Link>
+              </Button>
+              <Button
+                asChild
+                size="lg"
+                className="bg-white/20 hover:bg-white/30 text-white text-lg px-8 py-6"
+              >
+                <Link to="/cooperative">Coopérative</Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>

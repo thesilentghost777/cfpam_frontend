@@ -17,7 +17,7 @@ const Footer = () => {
             </p>
             <div className="flex gap-4">
               <a
-                href="https://facebook.com"
+                href="https://facebook.com/CFPAM?locale=fr_FR"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-secondary transition-colors"
@@ -26,7 +26,7 @@ const Footer = () => {
                 <Facebook className="w-5 h-5" />
               </a>
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/cfpam_group?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-secondary transition-colors"
@@ -34,15 +34,7 @@ const Footer = () => {
               >
                 <Instagram className="w-5 h-5" />
               </a>
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-secondary transition-colors"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="w-5 h-5" />
-              </a>
+              
             </div>
           </div>
 
@@ -62,17 +54,12 @@ const Footer = () => {
               </li>
               <li>
                 <Link to="/cooperative" className="hover:text-secondary transition-colors">
-                  Coopérative
+                  Coopérative COPCA
                 </Link>
               </li>
               <li>
-                <Link to="/etudiants" className="hover:text-secondary transition-colors">
-                  Liste des Étudiants
-                </Link>
-              </li>
-              <li>
-                <Link to="/actualites" className="hover:text-secondary transition-colors">
-                  Actualités
+                <Link to="/galerie" className="hover:text-secondary transition-colors">
+                  Galerie
                 </Link>
               </li>
             </ul>
@@ -91,12 +78,6 @@ const Footer = () => {
               <li className="hover:text-secondary transition-colors cursor-pointer">
                 Services Coopératifs
               </li>
-              <li className="hover:text-secondary transition-colors cursor-pointer">
-                Cours du Jour & Soir
-              </li>
-              <li className="hover:text-secondary transition-colors cursor-pointer">
-                Formation Continue
-              </li>
             </ul>
           </div>
 
@@ -106,7 +87,7 @@ const Footer = () => {
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-2">
                 <MapPin className="w-5 h-5 flex-shrink-0 mt-0.5 text-secondary" />
-                <span>Ekonou, en face lieu dit "entrée Gazolent", Yaoundé, Cameroun</span>
+                <span>Ekounou, lieu dit "entrée Gasolent", Yaoundé, Cameroun</span>
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="w-5 h-5 flex-shrink-0 text-secondary" />
@@ -118,15 +99,19 @@ const Footer = () => {
                   <a href="tel:+237677401841" className="hover:text-secondary transition-colors">
                     677 401 841
                   </a>
+                   {" / "}
+                  <a href="tel:+237659292001" className="hover:text-secondary transition-colors">
+                    659 292 001
+                  </a>
                 </div>
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="w-5 h-5 flex-shrink-0 text-secondary" />
                 <a
-                  href="mailto:contact@cfpam-group.cm"
+                  href="mailto:hopeconcept.cfpam@gmail.com"
                   className="hover:text-secondary transition-colors"
                 >
-                  contact@cfpam-group.cm
+                  hopeconcept.cfpam@gmail.com
                 </a>
               </li>
             </ul>

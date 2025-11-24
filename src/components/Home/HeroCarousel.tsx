@@ -5,6 +5,17 @@ import { Link } from "react-router-dom";
 
 const slides = [
   {
+    id: "welcome",
+    title: "Bienvenue AU CFPAM GROUP",
+    subtitle: "Excellence, Formation & Développement",
+    description:
+      "Le CFPAM GROUP réunit trois offres complémentaires pour votre réussite : Centre de Formation Professionnelle avec diplômes reconnus, Auto-École pour vos permis de conduire, et Coopérative COPCA pour financer vos projets. Découvrez nos programmes adaptés à vos ambitions.",
+    icon: Users,
+    link: "/",
+    gradient: "from-primary via-primary/90 to-secondary",
+    image: "/cfpamgroup.png",
+  },
+  {
     id: "formation",
     title: "Centre de Formation CFPAM",
     subtitle: "Excellence en Formation Professionnelle",
@@ -28,14 +39,14 @@ const slides = [
   },
   {
     id: "cooperative",
-    title: "Coopérative CFPAM",
+    title: "Coopérative COPCA",
     subtitle: "Ensemble pour Réussir",
     description:
       "Services coopératifs innovants pour accompagner votre développement professionnel et personnel.",
     icon: Users,
     link: "/cooperative",
     gradient: "from-cooperative-primary via-cooperative-primary/90 to-cooperative-secondary",
-    image: "/img4.png",
+    image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1200&h=600&fit=crop",
   },
 ];
 
@@ -63,7 +74,7 @@ const HeroCarousel = () => {
     setIsAutoPlaying(false);
   };
 
-  const goToSlide = (index: number) => {
+  const goToSlide = (index) => {
     setCurrentSlide(index);
     setIsAutoPlaying(false);
   };
@@ -76,7 +87,9 @@ const HeroCarousel = () => {
           <div
             key={slide.id}
             className={`absolute inset-0 transition-all duration-700 ${
-              index === currentSlide ? "opacity-100 scale-100" : "opacity-0 scale-105"
+              index === currentSlide
+                ? "opacity-100 scale-100 pointer-events-auto"
+                : "opacity-0 scale-105 pointer-events-none"
             }`}
           >
             {/* Background Image with Overlay */}

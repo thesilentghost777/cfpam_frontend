@@ -1,259 +1,211 @@
-import { Car, Award, Users, TrendingUp, Shield } from "lucide-react";
+import { Car,Bike, Award, CheckCircle, AlertCircle } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const AutoEcole = () => {
-  const permis = [
-    {
-      type: "Permis A",
-      title: "Permis pour Motos et Deux-Roues",
-      description:
-        "Formation complète pour la conduite de motocyclettes et scooters. Cours théoriques et pratiques adaptés aux véhicules à deux roues.",
-      icon: Car,
-      details: [
-        "Apprentissage du Code de la Route",
-        "Cours pratiques sur moto école",
-        "Techniques de conduite sécurisée",
-        "Gestion des situations d'urgence",
-        "Entretien de base du véhicule",
-      ],
-      price: "[45,000 FCFA]",
-      duree: "[3 mois]",
-      image: "https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=600&h=400&fit=crop",
-    },
-    {
-      type: "Permis B",
-      title: "Permis pour Véhicules Légers",
-      description:
-        "Formation professionnelle pour la conduite de voitures particulières. Cours théoriques approfondis et pratique intensive.",
-      icon: Car,
-      details: [
-        "Code de la Route complet",
-        "Conduite en ville et sur route",
-        "Stationnement et manœuvres",
-        "Conduite défensive",
-        "Respect de l'environnement",
-      ],
-      price: "[60,000 FCFA]",
-      duree: "[4 mois]",
-      image: "/img3.png",
-
-    },
-  ];
-
-  const avantages = [
-    {
-      icon: Shield,
-      title: "Instructeurs Certifiés",
-      description: "Équipe d'instructeurs professionnels et expérimentés",
-    },
-    {
-      icon: Award,
-      title: "Taux de Réussite Élevé",
-      description: "98% de nos élèves obtiennent leur permis du premier coup",
-    },
-    {
-      icon: Users,
-      title: "Suivi Personnalisé",
-      description: "Formation adaptée au rythme de chaque apprenant",
-    },
-    {
-      icon: TrendingUp,
-      title: "Équipement Moderne",
-      description: "Véhicules récents et bien entretenus",
-    },
-  ];
-
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
       <section
-  className="relative h-[400px] flex items-center overflow-hidden"
-  style={{
-    backgroundImage: "url('/img2.png')", // ✅ ton image locale (dans public/)
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-  }}
+  className="relative h-[400px] bg-cover bg-center flex items-center"
+  style={{ backgroundImage: `url('/auto_ecole1.png')` }}
 >
   <div className="absolute inset-0 bg-black/40" />
   <div className="container mx-auto px-4 relative z-10 text-white">
     <div className="max-w-3xl animate-slide-up">
       <h1 className="text-5xl md:text-6xl font-bold mb-4">Auto-École Ange Raphaël</h1>
-      <p className="text-2xl mb-4">Votre Permis de Conduire en Toute Confiance</p>
-      <p className="text-lg opacity-90">
-        Formation professionnelle avec des instructeurs qualifiés et des équipements modernes
-      </p>
+      <p className="text-2xl mb-4">Votre Permis en Toute Confiance</p>
+      <p className="text-lg opacity-90">Formation théorique et pratique avec des experts du domaine</p>
     </div>
   </div>
 </section>
 
 
-      {/* About Section */}
-      <section className="py-20">
+      {/* SECTION PARRAINAGE */}
+      <section className="py-16 bg-gradient-to-r from-autoecole-accent via-autoecole-primary to-autoecole-accent">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center mb-16">
-            <h2 className="text-4xl font-bold mb-6">Une Auto-École de Confiance</h2>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              L'Auto-École Ange Raphaël est reconnue pour son excellence et son professionnalisme.
-              Depuis notre création, nous avons formé des milliers de conducteurs responsables et
-              compétents. Notre approche pédagogique combine théorie approfondie et pratique
-              intensive pour garantir votre réussite.
-            </p>
-          </div>
-
-          {/* Avantages */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            {avantages.map((avantage, index) => {
-              const Icon = avantage.icon;
-              return (
-                <Card key={index} className="hover-lift text-center">
-                  <CardContent className="p-6">
-                    <div className="inline-flex items-center justify-center w-16 h-16 bg-autoecole-secondary rounded-full mb-4">
-                      <Icon className="w-8 h-8 text-white" />
-                    </div>
-                    <h3 className="text-lg font-semibold mb-2">{avantage.title}</h3>
-                    <p className="text-sm text-muted-foreground">{avantage.description}</p>
-                  </CardContent>
-                </Card>
-              );
-            })}
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="animate-pulse">
+              <h2 className="text-5xl md:text-7xl font-bold text-white mb-6 drop-shadow-2xl">
+                🎉 PERMIS GRATUIT 🎉
+              </h2>
+            </div>
+            <p className="text-2xl text-white mb-8 font-semibold">Découvrez notre système de parrainage !</p>
+            
+            <Card className="bg-white/95 backdrop-blur-sm">
+              <CardContent className="p-8">
+                <Accordion type="single" collapsible>
+                  <AccordionItem value="explication">
+                    <AccordionTrigger className="text-xl font-bold">
+                      <span className="flex items-center gap-2">
+                        <AlertCircle className="w-6 h-6 text-autoecole-primary" />
+                        Comment obtenir votre permis GRATUITEMENT ?
+                      </span>
+                    </AccordionTrigger>
+                    <AccordionContent className="pt-6">
+                      <div className="space-y-6 text-left">
+                        <div className="bg-autoecole-primary/10 p-6 rounded-lg">
+                          <h3 className="font-bold text-lg mb-3">Permis B (52,500 FCFA au lieu de 250,000 FCFA):</h3>
+                          <ul className="space-y-2">
+                            <li>✓ Payez d'abord 40,000 FCFA</li>
+                            <li>✓ Parrainez 3 personnes → Ne payez plus les 12,500 FCFA</li>
+                            <li>✓ Si vos 3 filleuls parrainent chacun 3 personnes → Remboursement de 40,000 FCFA</li>
+                          </ul>
+                        </div>
+                        <div className="bg-autoecole-secondary/10 p-6 rounded-lg">
+                          <h3 className="font-bold text-lg mb-3">Permis A (27,800 FCFA au lieu de 75,000 FCFA):</h3>
+                          <ul className="space-y-2">
+                            <li>✓ Payez d'abord 20,000 FCFA</li>
+                            <li>✓ Parrainez 3 personnes → Ne payez plus les 7,800 FCFA</li>
+                            <li>✓ Si vos 3 filleuls parrainent chacun 3 personnes → Remboursement de 20,000 FCFA</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
 
-      {/* Permis Section */}
+      {/* SECTION FORMATIONS */}
       <section className="py-20 bg-muted">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold mb-4">Nos Formations</h2>
-            <p className="text-lg text-muted-foreground">
-              Choisissez le permis qui correspond à vos besoins
-            </p>
+            <p className="text-lg text-muted-foreground">Formation complète en 2 mois</p>
           </div>
+          
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {/* PERMIS A */}
+            <Card className="hover-lift border-2 border-autoecole-primary">
+              <CardContent className="p-8">
+                <div className="text-center mb-6">
+                  <div className="inline-flex items-center justify-center w-20 h-20 bg-autoecole-primary rounded-full mb-4">
+  <Bike className="w-10 h-10 text-white" />
+</div>
 
-          <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            {permis.map((p, index) => {
-              const Icon = p.icon;
-              return (
-                <Card key={index} className="overflow-hidden hover-lift">
-                  <div className="relative h-48">
-                    <img
-                      src={p.image}
-                      alt={p.type}
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                    <div className="absolute bottom-4 left-4 text-white">
-                      <div className="flex items-center gap-2 mb-2">
-                        <Icon className="w-8 h-8" />
-                        <h3 className="text-2xl font-bold">{p.type}</h3>
-                      </div>
-                    </div>
+                  <h3 className="text-3xl font-bold mb-2">Permis A</h3>
+                  <p className="text-muted-foreground mb-4">Motocyclettes et cyclomoteurs</p>
+                  
+                  <div className="mb-4">
+                    <p className="text-2xl text-muted-foreground line-through mb-2">75,000 FCFA</p>
+                    <div className="text-5xl font-bold text-autoecole-secondary">27,800 FCFA</div>
+                    <p className="text-sm text-muted-foreground mt-2">Prix promotionnel</p>
                   </div>
-                  <CardContent className="p-6">
-                    <h4 className="text-xl font-semibold mb-3">{p.title}</h4>
-                    <p className="text-muted-foreground mb-6">{p.description}</p>
+                </div>
 
-                    <div className="mb-6">
-                      <h5 className="font-semibold mb-3">Programme de Formation</h5>
-                      <ul className="space-y-2">
-                        {p.details.map((detail, i) => (
-                          <li key={i} className="flex items-start gap-2">
-                            <span className="text-autoecole-accent mt-1">✓</span>
-                            <span className="text-sm">{detail}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                <div className="space-y-3 mb-6">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle className="w-5 h-5 text-autoecole-secondary" />
+                    <span>Durée: 2 mois</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle className="w-5 h-5 text-autoecole-secondary" />
+                    <span>Cours théoriques</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle className="w-5 h-5 text-autoecole-secondary" />
+                    <span>Cours pratiques</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle className="w-5 h-5 text-autoecole-secondary" />
+                    <span>Formateurs experts</span>
+                  </div>
+                </div>
 
-                    <div className="flex justify-between items-center pt-4 border-t">
-                      <div>
-                        <p className="text-sm text-muted-foreground">Durée</p>
-                        <p className="font-bold text-lg">{p.duree}</p>
-                      </div>
-                      <div className="text-right">
-                        <p className="text-sm text-muted-foreground">Tarif</p>
-                        <p className="font-bold text-2xl text-autoecole-secondary">{p.price}</p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Programme Parrainage */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <Card className="max-w-4xl mx-auto bg-autoecole-secondary text-white">
-            <CardContent className="p-8 md:p-12">
-              <div className="flex flex-col md:flex-row items-center gap-8">
-                <div className="flex-1">
-                  <h2 className="text-3xl font-bold mb-4">Programme Gagnant-Gagnant</h2>
-                  <p className="text-lg mb-6 opacity-90">
-                    Parrainez vos amis et bénéficiez de réductions sur votre formation au permis de
-                    conduire. Plus vous parrainez, plus vous économisez !
+                <div className="bg-autoecole-accent/10 p-4 rounded-lg">
+                  <p className="text-sm font-semibold text-center">
+                    Idéal pour conduire motos et scooters en toute sécurité
                   </p>
-                  <Button
-                    size="lg"
-                    className="bg-white text-autoecole-primary hover:bg-gray-100"
-                  >
-                    En savoir plus
-                  </Button>
                 </div>
-                <div className="w-48 h-48 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center">
-                  <Users className="w-24 h-24" />
+              </CardContent>
+            </Card>
+
+            {/* PERMIS B */}
+            <Card className="hover-lift border-2 border-autoecole-secondary">
+              <CardContent className="p-8">
+                <div className="text-center mb-6">
+                  <div className="inline-flex items-center justify-center w-20 h-20 bg-autoecole-secondary rounded-full mb-4">
+                    <Car className="w-10 h-10 text-white" />
+                  </div>
+                  <h3 className="text-3xl font-bold mb-2">Permis B</h3>
+                  <p className="text-muted-foreground mb-4">Véhicules légers (voitures)</p>
+                  
+                  <div className="mb-4">
+                    <p className="text-2xl text-muted-foreground line-through mb-2">250,000 FCFA</p>
+                    <div className="text-5xl font-bold text-autoecole-primary">52,500 FCFA</div>
+                    <p className="text-sm text-muted-foreground mt-2">Prix promotionnel</p>
+                  </div>
                 </div>
-              </div>
-            </CardContent>
-          </Card>
+
+                <div className="space-y-3 mb-6">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle className="w-5 h-5 text-autoecole-primary" />
+                    <span>Durée: 2 mois</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle className="w-5 h-5 text-autoecole-primary" />
+                    <span>Cours théoriques</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle className="w-5 h-5 text-autoecole-primary" />
+                    <span>Cours pratiques</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle className="w-5 h-5 text-autoecole-primary" />
+                    <span>Formateurs experts</span>
+                  </div>
+                </div>
+
+                <div className="bg-autoecole-primary/10 p-4 rounded-lg">
+                  <p className="text-sm font-semibold text-center">
+                    Le permis le plus demandé pour véhicules de tourisme
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </section>
 
-      {/* Why Choose Us */}
-      <section className="py-20 bg-gradient-to-br from-autoecole-primary to-autoecole-primary/80 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-12">Pourquoi Choisir Ange Raphaël ?</h2>
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8">
-              <div className="text-6xl font-bold text-autoecole-secondary mb-4">98%</div>
-              <p className="text-xl">Taux de Réussite</p>
-            </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8">
-              <div className="text-6xl font-bold text-autoecole-secondary mb-4">10+</div>
-              <p className="text-xl">Années d'Expérience</p>
-            </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8">
-              <div className="text-6xl font-bold text-autoecole-secondary mb-4">3000+</div>
-              <p className="text-xl">Permis Délivrés</p>
+      {/* SECTION AVANTAGES */}
+      <section className="py-20 bg-gradient-to-br from-autoecole-primary to-autoecole-accent text-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center">
+            <Award className="w-16 h-16 mx-auto mb-6" />
+            <h2 className="text-4xl font-bold mb-6">Pourquoi Choisir Ange Raphaël ?</h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
+                <h3 className="text-xl font-bold mb-3">Formateurs Qualifiés</h3>
+                <p className="opacity-90">Des experts passionnés avec années d'expérience</p>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
+                <h3 className="text-xl font-bold mb-3">Taux de Réussite Élevé</h3>
+                <p className="opacity-90">Plus de 90% de nos élèves réussissent du premier coup</p>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
+                <h3 className="text-xl font-bold mb-3">Véhicules Modernes</h3>
+                <p className="opacity-90">Flotte récente et bien entretenue</p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20">
+      {/* SECTION CTA */}
+      <section className="py-20 bg-muted">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-6">Prêt à Obtenir Votre Permis ?</h2>
-          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Inscrivez-vous dès aujourd'hui et commencez votre formation avec les meilleurs
-            instructeurs
-          </p>
+          <h2 className="text-4xl font-bold mb-6">Prêt à Passer Votre Permis ?</h2>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Button asChild size="lg" className="bg-autoecole-primary hover:bg-autoecole-primary/90">
+            <Button asChild size="lg" className="bg-autoecole-primary">
               <Link to="/pre-inscription">S'inscrire Maintenant</Link>
             </Button>
-            <Button asChild size="lg" variant="outline">
-              <a href="tel:+237655511512">Appelez-nous</a>
-            </Button>
             <Button asChild size="lg" className="bg-[#25D366] hover:bg-[#20BA5A] text-white">
-              <a href="https://wa.me/237677401841" target="_blank" rel="noopener noreferrer">
-                WhatsApp
-              </a>
+              <a href="https://wa.me/237677401841" target="_blank" rel="noopener noreferrer">WhatsApp</a>
             </Button>
           </div>
         </div>
