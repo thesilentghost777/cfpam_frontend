@@ -54,7 +54,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link to="/cooperative" className="hover:text-secondary transition-colors">
-                  Coopérative COPCA
+                  Coopérative CFPAM
                 </Link>
               </li>
               <li>
