@@ -7,7 +7,7 @@ const CentreFormation = () => {
   const [loading, setLoading] = useState({});
   const [errors, setErrors] = useState({});
 
-  const API_URL = "http://127.0.0.1:8000/api";
+  const API_URL = "https://cfpam-api.supahuman.site/api";
 
   const annees = ["2020-2021", "2021-2022", "2022-2023", "2023-2024", "2024-2025"];
 
