@@ -7,16 +7,23 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 const AutoEcole = () => {
   return (
     <div className="min-h-screen">
-      <section
-  className="relative h-[400px] bg-cover bg-center flex items-center"
+     <section
+  className="relative h-96 bg-cover bg-center flex items-center"
   style={{ backgroundImage: `url('/auto_ecole1.png')` }}
 >
-  <div className="absolute inset-0 bg-black/40" />
+  <div className="absolute inset-0 bg-black/30" />
   <div className="container mx-auto px-4 relative z-10 text-white">
-    <div className="max-w-3xl animate-slide-up">
-      <h1 className="text-5xl md:text-6xl font-bold mb-4">Auto-École Ange Raphaël</h1>
-      <p className="text-2xl mb-4">Votre Permis en Toute Confiance</p>
-      <p className="text-lg opacity-90">Formation théorique et pratique avec des experts du domaine</p>
+    <div className="max-w-3xl">
+      <h1 className="text-4xl md:text-5xl font-bold mb-4">
+        Auto-École Ange Raphaël
+      </h1>
+      <p className="text-xl opacity-90 mb-2">
+        Agrément N° 0266/D/MINT/G/DTR/SDPSR/SFCAM
+      </p>
+      <p className="text-lg font-semibold">Votre Permis en Toute Confiance</p>
+      <p className="text-base opacity-90 mt-2">
+        Formation théorique et pratique avec des experts du domaine
+      </p>
     </div>
   </div>
 </section>

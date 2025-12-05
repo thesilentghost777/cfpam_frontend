@@ -39,7 +39,7 @@ const slides = [
   },
   {
     id: "cooperative",
-    title: "Coopérative COPCA",
+    title: "Coopérative CFPAM",
     subtitle: "Ensemble pour Réussir",
     description:
       "Services coopératifs innovants pour accompagner votre développement professionnel et personnel.",

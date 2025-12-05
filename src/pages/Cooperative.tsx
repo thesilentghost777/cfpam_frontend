@@ -16,7 +16,7 @@ const Cooperative = () => {
 
   <div className="container mx-auto px-4 relative z-10 text-white">
     <div className="max-w-3xl animate-slide-up">
-      <h1 className="text-5xl md:text-6xl font-bold mb-4">Coopérative COPCA</h1>
+      <h1 className="text-5xl md:text-6xl font-bold mb-4">Coopérative CFPAM</h1>
       <p className="text-2xl mb-4">Ensemble pour Réussir</p>
     </div>
   </div>

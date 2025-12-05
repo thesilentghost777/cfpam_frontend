@@ -35,7 +35,7 @@ const Header = () => {
     { name: "Accueil", path: "/" },
     { name: "Centre de Formation", path: "/centre-formation" },
     { name: "Auto-École", path: "/auto-ecole" },
-    { name: "Coopérative COPCA", path: "/cooperative" },
+    { name: "Coopérative CFPAM", path: "/cooperative" },
     { name: "Galerie", path: "/galerie" },
     { name: "Actualités", path: "/actualites" },
   ];

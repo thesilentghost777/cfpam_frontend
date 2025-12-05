@@ -120,21 +120,21 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="border-t border-primary-foreground/20 pt-8 mt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
-            <p className="text-primary-foreground/80">
-              © {currentYear} CFPAM GROUP. Tous droits réservés.
+          
+
+          {/* Made By Section */}
+          <div className="border-t border-primary-foreground/20 mt-8 pt-6 text-center text-xs text-primary-foreground/60">
+            <p>
+              Made by{" "}
+              <a
+                href="https://techforgesolution237.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-secondary hover:underline transition-colors"
+              >
+                Tech Forge Solution 237
+              </a>
             </p>
-            <div className="flex gap-6">
-              <Link to="/mentions-legales" className="hover:text-secondary transition-colors">
-                Mentions Légales
-              </Link>
-              <Link to="/confidentialite" className="hover:text-secondary transition-colors">
-                Confidentialité
-              </Link>
-              <Link to="/conditions" className="hover:text-secondary transition-colors">
-                Conditions
-              </Link>
-            </div>
           </div>
         </div>
       </div>

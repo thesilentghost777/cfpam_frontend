@@ -7,60 +7,50 @@ const Galerie = () => {
       title: "Formation",
       icon: GraduationCap,
       images: [
-        { url: "524178232363-1fb2b075b655?w=800", alt: "Salle de classe moderne" },
-        { url: "522202176988-66273c2fd55f?w=800", alt: "Étudiants en formation" },
-        { url: "531482615713-2afd69097998?w=800", alt: "Cours pratiques" },
-        { url: "523580494863-6f3031224c94?w=800", alt: "Équipement informatique" },
+        { url: "/galerie/salle_moderne.jpg", alt: "Salle de classe moderne" },
+        { url: "/galerie/etudiant_en_formation.jpg", alt: "Étudiants en formation" },
+        { url: "/galerie/atelier_pratique.jpg", alt: "Atelier pratiques" },
+        { url: "/galerie/equipement_informatique.jpg", alt: "Équipement informatique" },
       ]
     },
     {
       title: "Auto-École",
       icon: Building2,
       images: [
-        { url: "449965408869-eaa3f722e40d?w=800", alt: "Véhicule d'auto-école" },
-        { url: "568605117036-5fe5e7bab0b7?w=800", alt: "Formation pratique conduite" },
-        { url: "506521781263-d8422e82f27a?w=800", alt: "Simulateur de conduite" },
-        { url: "519003300449-424ad0405076?w=800", alt: "Cours théoriques" },
+        { url: "/galerie/voiture_auto_ecole.jpg", alt: "Véhicule d'auto-école" },
+        { url: "/img2.png", alt: "Formation pratique conduite" },
+        { url: "/galerie/simulateur_conduite.png", alt: "Simulateur de conduite" },
+        { url: "/galerie/theorie_auto_ecole.png", alt: "Cours théoriques" },
       ]
     },
     {
       title: "Événements",
       icon: Users,
       images: [
-        { url: "523580494863-6f3031224c94?w=800", alt: "Cérémonie de remise de diplômes" },
-        { url: "511578314322-379afb476865?w=800", alt: "Événement de l'école" },
-        { url: "540575467063-178a50c2df87?w=800", alt: "Conférence" },
-        { url: "515187029135-18ee286d815b?w=800", alt: "Activités sportives" },
+        { url: "/galerie/remise_diplome.jpg", alt: "Cérémonie de remise de diplômes" },
+        { url: "/galerie/evenement_de_lecole.jpg", alt: "Événement de l'école" },
+        { url: "/galerie/conference.jpg", alt: "Conférence" },
+        { url: "/galerie/sortie_sport.jpg", alt: "Activités sportives" },
       ]
     },
     {
       title: "Infrastructures",
       icon: Building2,
       images: [
-        { url: "562654501-a0ccc0fc3fb1?w=800", alt: "Bâtiment principal" },
-        { url: "497366811353-6870744d04b2?w=800", alt: "Salle informatique" },
-        { url: "497366754035-f200968a6e72?w=800", alt: "Bibliothèque" },
-        { url: "524178232363-1fb2b075b655?w=800", alt: "Espace de détente" },
-      ]
-    },
-    {
-      title: "Récompenses",
-      icon: Award,
-      images: [
-        { url: "567427017947-545c5f8d16ad?w=800", alt: "Trophées et récompenses" },
-        { url: "557425529-e2a9ff252148?w=800", alt: "Certificats" },
-        { url: "581578731548-c64695cc6952?w=800", alt: "Prix d'excellence" },
-        { url: "548094990-c16ca90f1f0d?w=800", alt: "Médailles" },
+        { url: "/galerie/batiment_principal.jpg", alt: "Bâtiment principal" },
+        { url: "/galerie/equipement_informatique.jpg", alt: "Salle informatique" },
+        { url: "/galerie/bibliotheque.png", alt: "Bibliothèque" },
+        { url: "/galerie/espace_detente.jpg", alt: "Espace de détente" },
       ]
     },
     {
       title: "Vidéos",
       icon: Video,
       images: [
-        { url: "492691527719-9d1e07e534b4?w=800", alt: "Production vidéo" },
-        { url: "516035069371-29a1b244cc32?w=800", alt: "Studio vidéo" },
-        { url: "574717024653-61fd2cf4d44d?w=800", alt: "Montage vidéo" },
-        { url: "536240478700-b869070f9279?w=800", alt: "Tournage" },
+        { url: "/galerie/production_video.png", alt: "Production vidéo" },
+        { url: "/galerie/studio_video.png", alt: "Studio vidéo" },
+        { url: "/galerie/montage_video.jpg", alt: "Montage vidéo" },
+        { url: "/galerie/tournage_video.jpg", alt: "Tournage" },
       ]
     },
   ];
