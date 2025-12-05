@@ -43,7 +43,7 @@ const Index = () => {
     },
     {
       icon: Users,
-      title: "Coopérative COPCA",
+      title: "Coopérative CFPAM",
       subtitle: "Ensemble pour Réussir",
       description: "Épargne et financement pour étudiants CFPAM et externes. Financement de projets entrepreneuriaux et acquisition de véhicules",
       features: [
