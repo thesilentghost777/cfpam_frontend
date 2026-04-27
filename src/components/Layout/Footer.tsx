@@ -127,7 +127,7 @@ const Footer = () => {
             <p>
               Made by{" "}
               <a
-                href="https://techforgesolution237.com"
+                href="https://tfs237.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-secondary hover:underline transition-colors"
