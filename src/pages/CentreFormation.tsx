@@ -8,6 +8,7 @@ const CentreFormation = () => {
   const [errors, setErrors] = useState({});
 
   const API_URL = "https://cfpam-api.supahuman.site/api";
+  const isProduction = true;
 
   const annees = ["2020-2021", "2021-2022", "2022-2023", "2023-2024", "2024-2025"];
 
@@ -199,7 +200,6 @@ const CentreFormation = () => {
         throw new Error("Filière non reconnue");
       }
 
-      // Appel API avec filière et année (pas de sous-filière)
       const endpoint = `${API_URL}/cfpam/etudiants/filiere/${filiereCode}?annee=${encodeURIComponent(annee)}`;
       
       const response = await fetch(endpoint);
@@ -222,11 +222,20 @@ const CentreFormation = () => {
       }));
 
     } catch (error) {
-      console.error("Erreur:", error);
-      setErrors(prev => ({
-        ...prev,
-        [filterKey]: error instanceof Error ? error.message : "Erreur inconnue"
-      }));
+      // En production, on log l'erreur silencieusement sans l'afficher
+      if (!isProduction) {
+        console.error("Erreur:", error);
+      }
+      
+      // En développement, on affiche l'erreur
+      if (!isProduction) {
+        setErrors(prev => ({
+          ...prev,
+          [filterKey]: error instanceof Error ? error.message : "Erreur inconnue"
+        }));
+      }
+      
+      // Dans tous les cas, on vide les données
       setEtudiantsData(prev => ({
         ...prev,
         [filterKey]: []
@@ -280,24 +289,22 @@ const CentreFormation = () => {
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
       <section
-  className="relative h-96 bg-cover bg-center flex items-center"
-  style={{ backgroundImage: `url('/img1.png')` }}
->
-  <div className="absolute inset-0 bg-black/30" />
-
-  <div className="container mx-auto px-4 relative z-10 text-white">
-    <div className="max-w-3xl">
-      <h1 className="text-4xl md:text-5xl font-bold mb-4">
-        Centre de Formation Professionnel en Arts et Métiers
-      </h1>
-      <p className="text-xl opacity-90 mb-2">
-        Agrément N° 071/MINEFOPVSG/DFOP/SDGSF/SACD
-      </p>
-      <p className="text-lg font-semibold">Formations Cours du jour et du Soir</p>
-    </div>
-  </div>
-</section>
-
+        className="relative h-96 bg-cover bg-center flex items-center"
+        style={{ backgroundImage: `url('/img1.png')` }}
+      >
+        <div className="absolute inset-0 bg-black/30" />
+        <div className="container mx-auto px-4 relative z-10 text-white">
+          <div className="max-w-3xl">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+              Centre de Formation Professionnel en Arts et Métiers
+            </h1>
+            <p className="text-xl opacity-90 mb-2">
+              Agrément N° 071/MINEFOPVSG/DFOP/SDGSF/SACD
+            </p>
+            <p className="text-lg font-semibold">Formations Cours du jour et du Soir</p>
+          </div>
+        </div>
+      </section>
 
       {/* Diplomes Section */}
       <section className="py-20 bg-white">
@@ -360,7 +367,7 @@ const CentreFormation = () => {
                   <div className="mb-6 bg-blue-50 p-4 rounded-lg border border-blue-200">
                     <div className="flex items-center gap-3 mb-3">
                       <Filter className="w-5 h-5 text-blue-600" />
-                      <label className="font-semibold text-blue-900">Liste des etudiants Filtrer par année académique</label>
+                      <label className="font-semibold text-blue-900">Liste des etudiants - Filtrer par année académique</label>
                     </div>
                     <select 
                       className="w-full p-2 border rounded-lg bg-white"
@@ -396,7 +403,8 @@ const CentreFormation = () => {
                     </div>
                   )}
 
-                  {error && (
+                  {/* Erreur - affichée uniquement en développement */}
+                  {!isProduction && error && (
                     <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-6">
                       <div className="flex items-start gap-3">
                         <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
