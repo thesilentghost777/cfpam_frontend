@@ -34,7 +34,7 @@ coverage/
 # Optional: if you use eslint cache
 .eslintcache
 
-# Optional: if you use React Native or Expo (can be ignored for web)
+# Optional: if you use React Native or Expo
 .expo/
 .expo-shared/
 
