@@ -12,7 +12,6 @@ const CentreFormation = () => {
 
   const annees = ["2020-2021", "2021-2022", "2022-2023", "2023-2024", "2024-2025"];
 
-  // Mapping des noms de formations vers les codes API
   const formationMapping = {
     "Secrétariat": "secretariat",
     "Audiovisuel": "audiovisuel",
@@ -143,14 +142,8 @@ const CentreFormation = () => {
       duree: "1 mois + 2 mois d'incubation préfinancement",
       inscription: "10,000 FCFA",
       packs: [
-        {
-          nom: "Décoration",
-          activites: ["Décoration intérieur", "Décoration événementielle"],
-        },
-        {
-          nom: "Esthétique",
-          activites: ["Manicure/Pédicure", "Make up/Micro blading"],
-        },
+        { nom: "Décoration", activites: ["Décoration intérieur", "Décoration événementielle"] },
+        { nom: "Esthétique", activites: ["Manicure/Pédicure", "Make up/Micro blading"] },
       ],
     },
     {
@@ -158,14 +151,8 @@ const CentreFormation = () => {
       duree: "2 semaines + 1 mois d'incubation préfinancement",
       inscription: "10,000 FCFA",
       packs: [
-        {
-          nom: "Sculpture et Fabrication",
-          activites: ["Sculpture de fruits", "Fabrication de jus naturel"],
-        },
-        {
-          nom: "Élevage",
-          activites: ["Élevage de vers blancs (Hannetons)", "Élevage d'escargots comestibles"],
-        },
+        { nom: "Sculpture et Fabrication", activites: ["Sculpture de fruits", "Fabrication de jus naturel"] },
+        { nom: "Élevage", activites: ["Élevage de vers blancs (Hannetons)", "Élevage d'escargots comestibles"] },
         {
           nom: "Fabrication de Produits",
           activites: [
@@ -190,100 +177,50 @@ const CentreFormation = () => {
 
   const loadEtudiants = async (formationName, annee) => {
     const filterKey = formationName;
-    
     setLoading(prev => ({ ...prev, [filterKey]: true }));
     setErrors(prev => ({ ...prev, [filterKey]: null }));
 
     try {
       const filiereCode = formationMapping[formationName];
-      if (!filiereCode) {
-        throw new Error("Filière non reconnue");
-      }
+      if (!filiereCode) throw new Error("Filière non reconnue");
 
       const endpoint = `${API_URL}/cfpam/etudiants/filiere/${filiereCode}?annee=${encodeURIComponent(annee)}`;
-      
       const response = await fetch(endpoint);
-      
-      if (!response.ok) {
-        throw new Error(`Erreur ${response.status}: ${response.statusText}`);
-      }
+
+      if (!response.ok) throw new Error(`Erreur ${response.status}: ${response.statusText}`);
 
       const result = await response.json();
-      
-      if (!result.success) {
-        throw new Error(result.message || "Erreur lors de la récupération des données");
-      }
+      if (!result.success) throw new Error(result.message || "Erreur lors de la récupération des données");
 
       const etudiantsArray = Array.isArray(result.data) ? result.data : [];
-      
-      setEtudiantsData(prev => ({
-        ...prev,
-        [filterKey]: etudiantsArray
-      }));
-
+      setEtudiantsData(prev => ({ ...prev, [filterKey]: etudiantsArray }));
     } catch (error) {
-      // En production, on log l'erreur silencieusement sans l'afficher
       if (!isProduction) {
         console.error("Erreur:", error);
+        setErrors(prev => ({ ...prev, [filterKey]: error instanceof Error ? error.message : "Erreur inconnue" }));
       }
-      
-      // En développement, on affiche l'erreur
-      if (!isProduction) {
-        setErrors(prev => ({
-          ...prev,
-          [filterKey]: error instanceof Error ? error.message : "Erreur inconnue"
-        }));
-      }
-      
-      // Dans tous les cas, on vide les données
-      setEtudiantsData(prev => ({
-        ...prev,
-        [filterKey]: []
-      }));
+      setEtudiantsData(prev => ({ ...prev, [filterKey]: [] }));
     } finally {
       setLoading(prev => ({ ...prev, [filterKey]: false }));
     }
   };
 
   const handleFilterChange = (formationName, annee) => {
-    const key = formationName;
-    setSelectedFilters(prev => ({
-      ...prev,
-      [key]: annee
-    }));
-    
+    setSelectedFilters(prev => ({ ...prev, [formationName]: annee }));
     if (annee) {
       loadEtudiants(formationName, annee);
     } else {
-      setEtudiantsData(prev => ({
-        ...prev,
-        [key]: []
-      }));
+      setEtudiantsData(prev => ({ ...prev, [formationName]: [] }));
     }
   };
 
   const clearFilter = (formationName) => {
-    const key = formationName;
-    setSelectedFilters(prev => {
-      const newFilters = { ...prev };
-      delete newFilters[key];
-      return newFilters;
-    });
-    setEtudiantsData(prev => {
-      const newData = { ...prev };
-      delete newData[key];
-      return newData;
-    });
-    setErrors(prev => {
-      const newErrors = { ...prev };
-      delete newErrors[key];
-      return newErrors;
-    });
+    setSelectedFilters(prev => { const n = { ...prev }; delete n[formationName]; return n; });
+    setEtudiantsData(prev => { const n = { ...prev }; delete n[formationName]; return n; });
+    setErrors(prev => { const n = { ...prev }; delete n[formationName]; return n; });
   };
 
-  const handleInscription = () => {
-    window.location.href = '/pre-inscription';
-  };
+  const handleInscription = () => { window.location.href = '/pre-inscription'; };
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -338,7 +275,7 @@ const CentreFormation = () => {
         </div>
       </section>
 
-      {/* Formations Section avec un seul filtre par filière */}
+      {/* Formations Section */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
@@ -363,13 +300,12 @@ const CentreFormation = () => {
                     </div>
                   </div>
 
-                  {/* Filtre par année - UN SEUL pour toute la filière */}
                   <div className="mb-6 bg-blue-50 p-4 rounded-lg border border-blue-200">
                     <div className="flex items-center gap-3 mb-3">
                       <Filter className="w-5 h-5 text-blue-600" />
                       <label className="font-semibold text-blue-900">Liste des etudiants - Filtrer par année académique</label>
                     </div>
-                    <select 
+                    <select
                       className="w-full p-2 border rounded-lg bg-white"
                       value={selectedFilters[formation.name] || ""}
                       onChange={(e) => handleFilterChange(formation.name, e.target.value)}
@@ -379,23 +315,18 @@ const CentreFormation = () => {
                         <option key={annee} value={annee}>{annee}</option>
                       ))}
                     </select>
-                    
                     {selectedFilters[formation.name] && (
                       <div className="mt-3 p-3 bg-white rounded border border-blue-200">
                         <p className="text-sm text-gray-600 mb-2">
                           <span className="font-semibold">Année sélectionnée:</span> {selectedFilters[formation.name]}
                         </p>
-                        <button 
-                          className="px-3 py-1 text-sm border rounded hover:bg-gray-50"
-                          onClick={() => clearFilter(formation.name)}
-                        >
+                        <button className="px-3 py-1 text-sm border rounded hover:bg-gray-50" onClick={() => clearFilter(formation.name)}>
                           Réinitialiser le filtre
                         </button>
                       </div>
                     )}
                   </div>
 
-                  {/* Affichage des étudiants */}
                   {isLoading && (
                     <div className="text-center py-8">
                       <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto mb-3"></div>
@@ -403,7 +334,6 @@ const CentreFormation = () => {
                     </div>
                   )}
 
-                  {/* Erreur - affichée uniquement en développement */}
                   {!isProduction && error && (
                     <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-6">
                       <div className="flex items-start gap-3">
@@ -427,12 +357,8 @@ const CentreFormation = () => {
                             <p className="font-semibold">{etudiant.nom_complet}</p>
                             <div className="text-sm text-gray-600 mt-1">
                               {etudiant.diplome && <span>• {etudiant.diplome}</span>}
-                              {etudiant.date_validation && (
-                                <span className="ml-3">• Validé le {etudiant.date_validation}</span>
-                              )}
-                              {etudiant.sous_filiere && (
-                                <span className="ml-3">• {etudiant.sous_filiere}</span>
-                              )}
+                              {etudiant.date_validation && <span className="ml-3">• Validé le {etudiant.date_validation}</span>}
+                              {etudiant.sous_filiere && <span className="ml-3">• {etudiant.sous_filiere}</span>}
                             </div>
                           </div>
                         ))}
@@ -447,7 +373,6 @@ const CentreFormation = () => {
                     </div>
                   )}
 
-                  {/* Spécialités avec leurs modules */}
                   <div className="space-y-4">
                     <h4 className="font-bold text-lg mb-4">Spécialités et modules :</h4>
                     {formation.specialites.map((specialite, specIndex) => (
@@ -459,7 +384,6 @@ const CentreFormation = () => {
                           <span className="text-lg font-semibold">{specialite.nom}</span>
                           <span className="text-2xl">{isOpen ? '−' : '+'}</span>
                         </button>
-                        
                         {isOpen && (
                           <div className="p-6 border-t">
                             <h5 className="font-bold mb-3 text-blue-600">Modules enseignés :</h5>
@@ -477,7 +401,6 @@ const CentreFormation = () => {
                     ))}
                   </div>
 
-                  {/* Débouchés */}
                   <div className="mt-6 pt-6 border-t">
                     <h4 className="font-bold mb-3">Débouchés professionnels :</h4>
                     <div className="flex flex-wrap gap-2">
@@ -503,7 +426,6 @@ const CentreFormation = () => {
               <h2 className="text-4xl font-bold mb-4">Ateliers Pratiques</h2>
               <p className="text-xl opacity-90">Formations courtes avec accompagnement entrepreneurial</p>
             </div>
-            
             <div className="grid md:grid-cols-2 gap-8">
               {ateliersPratiques.map((atelier, index) => (
                 <div key={index} className="bg-white/95 backdrop-blur-sm rounded-lg p-6 text-gray-800">
@@ -512,7 +434,6 @@ const CentreFormation = () => {
                     <p className="text-sm text-gray-600 mb-1">{atelier.duree}</p>
                     <p className="font-bold text-purple-600">Inscription : {atelier.inscription}</p>
                   </div>
-                  
                   <div className="space-y-4 mt-6">
                     {atelier.packs.map((pack, pIdx) => (
                       <div key={pIdx} className="bg-gray-100 rounded-lg p-4">
@@ -552,20 +473,62 @@ const CentreFormation = () => {
         </div>
       </section>
 
+      {/* SECTION APPLICATION ELITE 2.0 */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-10">
+            {/* Logo */}
+            <div className="flex-shrink-0 flex items-center justify-center">
+              <div className="w-36 h-36 rounded-3xl shadow-2xl overflow-hidden border-4 border-blue-600 bg-white flex items-center justify-center">
+                <img
+                  src="/App/logo-elite.png"
+                  alt="Application Elite 2.0"
+                  className="w-full h-full object-contain p-2"
+                />
+              </div>
+            </div>
+
+            {/* Texte */}
+            <div className="flex-1 text-center md:text-left">
+              <span className="inline-block bg-blue-100 text-blue-700 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-3">
+                Plateforme officielle
+              </span>
+              <h2 className="text-3xl font-bold mb-3">
+                Rejoignez Elite 2.0 !
+              </h2>
+              <p className="text-gray-500 text-base mb-6">
+                Accédez à la plateforme <strong>Elite 2.0</strong> pour gérer votre parcours de formation, suivre vos cours en ligne et rester connecté au CFPAM — depuis n'importe quel appareil, à tout moment.
+              </p>
+              <a
+                href="https://elite.supahuman.site/elite_inscription.html?ref=EL21CEBD"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-200 text-base"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+                S'inscrire sur Elite 2.0
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white border-t">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-6">Prêt à Commencer Votre Formation ?</h2>
           <div className="flex flex-wrap gap-4 justify-center">
-            <button 
+            <button
               onClick={handleInscription}
               className="px-8 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors text-lg"
             >
               S'inscrire Maintenant
             </button>
-            <a 
-              href="https://wa.me/237677401841" 
-              target="_blank" 
+            <a
+              href="https://wa.me/237677401841"
+              target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-3 bg-green-500 text-white rounded-lg font-semibold hover:bg-green-600 transition-colors inline-block text-lg"
             >
