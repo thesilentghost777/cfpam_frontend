@@ -35,7 +35,7 @@ const App = () => (
       <BrowserRouter>
         <div className="flex flex-col min-h-screen">
           <Header />
-          <main className="flex-grow pt-[140px] md:pt-[120px]">
+          <main className="flex-grow pt-[80px] md:pt-[112px]">
             <Suspense fallback={<LoadingSpinner />}>
               <Routes>
                 <Route path="/" element={<Index />} />

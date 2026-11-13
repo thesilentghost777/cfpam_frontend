@@ -29,17 +29,15 @@ const AutoEcole = () => {
       </section>
 
       {/* SECTION PARRAINAGE */}
-      <section className="py-16 bg-gradient-to-r from-autoecole-accent via-autoecole-primary to-autoecole-accent">
+      <section className="py-16 bg-autoecole-primary">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="animate-pulse">
-              <h2 className="text-5xl md:text-7xl font-bold text-white mb-6 drop-shadow-2xl">
-                🎉 PERMIS GRATUIT 🎉
-              </h2>
-            </div>
+            <h2 className="text-4xl md:text-6xl font-semibold text-white mb-6">
+              Permis gratuit
+            </h2>
             <p className="text-2xl text-white mb-8 font-semibold">Découvrez notre système de parrainage !</p>
 
-            <Card className="bg-white/95 backdrop-blur-sm">
+            <Card className="bg-white">
               <CardContent className="p-8">
                 <Accordion type="single" collapsible>
                   <AccordionItem value="explication">
@@ -144,23 +142,23 @@ const AutoEcole = () => {
       </section>
 
       {/* SECTION AVANTAGES */}
-      <section className="py-20 bg-gradient-to-br from-autoecole-primary to-autoecole-accent text-white">
+      <section className="py-20 bg-muted">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <Award className="w-16 h-16 mx-auto mb-6" />
+            <Award className="w-12 h-12 mx-auto mb-6 text-autoecole-primary" />
             <h2 className="text-4xl font-bold mb-6">Pourquoi Choisir Ange Raphaël ?</h2>
             <div className="grid md:grid-cols-3 gap-6">
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
+              <div className="bg-white border border-border rounded-xl p-6">
                 <h3 className="text-xl font-bold mb-3">Formateurs Qualifiés</h3>
-                <p className="opacity-90">Des experts passionnés avec années d'expérience</p>
+                <p className="text-muted-foreground">Des experts passionnés avec années d'expérience</p>
               </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
+              <div className="bg-white border border-border rounded-xl p-6">
                 <h3 className="text-xl font-bold mb-3">Taux de Réussite Élevé</h3>
-                <p className="opacity-90">Plus de 90% de nos élèves réussissent du premier coup</p>
+                <p className="text-muted-foreground">Plus de 90% de nos élèves réussissent du premier coup</p>
               </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
+              <div className="bg-white border border-border rounded-xl p-6">
                 <h3 className="text-xl font-bold mb-3">Véhicules Modernes</h3>
-                <p className="opacity-90">Flotte récente et bien entretenue</p>
+                <p className="text-muted-foreground">Flotte récente et bien entretenue</p>
               </div>
             </div>
           </div>
@@ -173,9 +171,9 @@ const AutoEcole = () => {
           <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-10">
             {/* Logo */}
             <div className="flex-shrink-0 flex items-center justify-center">
-              <div className="w-36 h-36 rounded-3xl shadow-2xl overflow-hidden border-4 border-autoecole-primary bg-white flex items-center justify-center">
+              <div className="w-36 h-36 rounded-2xl shadow-sm overflow-hidden border border-border bg-white flex items-center justify-center">
                 <img
-                  src="/App/logo-ar.png"
+                  src="/App/angeraphael-icon.png"
                   alt="Application Ange Raphaël"
                   className="w-full h-full object-contain p-2"
                 />

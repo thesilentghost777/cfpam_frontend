@@ -87,7 +87,7 @@ const Galerie = () => {
                             alt={image.alt}
                             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                           />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <div className="absolute inset-0 bg-primary/75 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             <div className="absolute bottom-0 left-0 right-0 p-4">
                               <p className="text-white font-medium text-sm">{image.alt}</p>
                             </div>
@@ -102,11 +102,11 @@ const Galerie = () => {
           </div>
 
           <div className="mt-16 text-center">
-            <Card className="bg-gradient-to-br from-primary via-primary-light to-secondary text-white">
+            <Card className="bg-muted text-foreground border border-border shadow-none">
               <CardContent className="p-8">
-                <Camera className="w-16 h-16 mx-auto mb-4 opacity-90" />
+                <Camera className="w-12 h-12 mx-auto mb-4 text-primary" />
                 <h3 className="text-2xl font-bold mb-4">Visitez-nous !</h3>
-                <p className="text-lg opacity-90 max-w-2xl mx-auto">
+                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
                   Ces images ne représentent qu'un aperçu de notre établissement. 
                   Venez nous rendre visite pour découvrir en personne nos installations modernes 
                   et rencontrer notre équipe pédagogique.

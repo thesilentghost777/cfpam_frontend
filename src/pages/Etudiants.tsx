@@ -96,12 +96,12 @@ const Etudiants = () => {
   }, [filterType, filterValue]);
 
   return (
-    <div className="min-h-screen py-12 bg-gradient-to-br from-blue-50 via-white to-purple-50">
+    <div className="min-h-screen py-12 bg-muted">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-8">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <h1 className="text-4xl md:text-5xl font-semibold mb-4 text-primary">
               Liste des Étudiants Validés
             </h1>
             <p className="text-lg text-gray-600">
@@ -110,8 +110,8 @@ const Etudiants = () => {
           </div>
 
           {/* Filters */}
-          <Card className="mb-8 shadow-lg border-0">
-            <CardHeader className="bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-t-lg">
+          <Card className="mb-8 border border-border shadow-sm">
+            <CardHeader className="bg-muted text-foreground border-b border-border rounded-t-md">
               <CardTitle className="flex items-center gap-2">
                 <Users className="w-5 h-5" />
                 Filtrer les étudiants
@@ -175,17 +175,17 @@ const Etudiants = () => {
           {/* Results */}
           {loading ? (
             <div className="text-center py-12">
-              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto"></div>
               <p className="mt-4 text-gray-600">Chargement des données...</p>
             </div>
           ) : etudiants.length > 0 ? (
             <div className="grid gap-4">
               {etudiants.map((etudiant, index) => (
-                <Card key={index} className="hover:shadow-xl transition-all duration-300 border-0 shadow-md">
+                <Card key={index} className="hover:shadow-md transition-shadow duration-300 border border-border shadow-sm">
                   <CardContent className="p-6">
                     <div className="flex items-start justify-between">
                       <div className="flex items-start gap-4 flex-1">
-                        <div className="p-3 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full">
+                        <div className="p-3 bg-primary rounded-xl">
                           <GraduationCap className="w-6 h-6 text-white" />
                         </div>
                         <div className="flex-1">
@@ -248,13 +248,13 @@ const Etudiants = () => {
           )}
 
           {/* Info Box */}
-          <Card className="mt-8 border-blue-200 bg-blue-50 shadow-md">
+          <Card className="mt-8 border-border bg-muted shadow-none">
             <CardContent className="p-6">
               <div className="flex items-start gap-4">
-                <AlertCircle className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
+                <AlertCircle className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
                 <div>
-                  <h3 className="font-semibold mb-2 text-blue-900">Note Importante</h3>
-                  <p className="text-sm text-blue-800">
+                  <h3 className="font-semibold mb-2 text-foreground">Note Importante</h3>
+                  <p className="text-sm text-muted-foreground">
                     Cette liste affiche uniquement les étudiants dont les inscriptions ont été
                     validées par l'administration. Pour toute question concernant votre inscription,
                     veuillez contacter directement le centre CFPAM.

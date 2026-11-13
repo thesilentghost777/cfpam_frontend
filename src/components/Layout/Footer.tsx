@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {/* About Section */}
           <div>
-            <h3 className="text-xl font-bold mb-4 text-secondary">CFPAM GROUP</h3>
+            <h3 className="text-xl font-semibold mb-4 text-white">CFPAM GROUP</h3>
             <p className="text-sm text-primary-foreground/80 mb-4">
               Centre de Formation Professionnelle des Arts et Métiers - Votre partenaire de
               confiance pour la formation et l'excellence depuis 2015.
@@ -40,7 +40,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-secondary">Liens Rapides</h3>
+            <h3 className="text-lg font-semibold mb-4 text-white">Liens Rapides</h3>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link to="/centre-formation" className="hover:text-secondary transition-colors">
@@ -67,7 +67,7 @@ const Footer = () => {
 
           {/* Nos Services */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-secondary">Nos Services</h3>
+            <h3 className="text-lg font-semibold mb-4 text-white">Nos Services</h3>
             <ul className="space-y-2 text-sm">
               <li className="hover:text-secondary transition-colors cursor-pointer">
                 Formations Diplômantes
@@ -83,7 +83,7 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-secondary">Contact</h3>
+            <h3 className="text-lg font-semibold mb-4 text-white">Contact</h3>
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-2">
                 <MapPin className="w-5 h-5 flex-shrink-0 mt-0.5 text-secondary" />

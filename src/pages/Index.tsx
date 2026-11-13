@@ -17,14 +17,14 @@ const Index = () => {
       icon: BookOpen,
       title: "Centre de Formation",
       subtitle: "Arts et Métiers",
-      description: "Formations professionnelles certifiantes dans 8 filières : Secrétariat, Audiovisuel, Digital, Beauté, Gestion, Comptabilité, Commerce, Informatique",
+      description: "Choisissez votre voie : comptabilité et gestion, secrétariat, infographie, douane et transit, digital, décoration et esthétique, auxiliaire de vie ou élevage.",
       features: [
         "AQP, CQP, DQP et BTS",
         "1 Laptop offert par apprenant",
         "Stage et insertion garantis",
         "Formations cours du jour et du soir"
       ],
-      color: "from-formation-primary to-formation-secondary",
+      color: "bg-primary",
       link: "/centre-formation"
     },
     {
@@ -38,7 +38,7 @@ const Index = () => {
         "Système de parrainage gratuit",
         "Taux de réussite > 90%"
       ],
-      color: "from-autoecole-primary to-autoecole-accent",
+      color: "bg-autoecole-primary",
       link: "/auto-ecole"
     },
     {
@@ -52,7 +52,7 @@ const Index = () => {
         "Cotisation : 60,000 FCFA/semaine",
         "Accompagnement personnalisé"
       ],
-      color: "from-cooperative-primary to-cooperative-secondary",
+      color: "bg-cooperative-primary",
       link: "/cooperative"
     },
   ];
@@ -74,7 +74,7 @@ const Index = () => {
                   className="text-center animate-fade-in"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-primary rounded-full mb-4">
+                  <div className="inline-flex items-center justify-center w-12 h-12 bg-primary rounded-md mb-4">
                     <Icon className="w-8 h-8 text-primary-foreground" />
                   </div>
                   <div className="text-3xl md:text-4xl font-bold text-primary mb-2">
@@ -93,7 +93,7 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center mb-16 animate-slide-up">
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
-              Bienvenue chez <span className="text-gradient">CFPAM GROUP</span>
+              Bienvenue chez <span className="text-primary">CFPAM GROUP</span>
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
               Depuis 2015, le CFPAM GROUP s'engage à offrir des solutions complètes pour votre développement professionnel et personnel au Cameroun. Formation professionnelle, permis de conduire et accompagnement entrepreneurial : nous transformons vos ambitions en réussites concrètes.
@@ -109,10 +109,10 @@ const Index = () => {
                 return (
                   <Card
                     key={index}
-                    className="hover-lift border-2 hover:border-primary transition-all"
+                    className="hover-lift border border-border bg-card shadow-none transition-all hover:border-primary/25"
                   >
                     <CardContent className="p-6">
-                      <div className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br ${offre.color} rounded-full mb-4`}>
+                      <div className={`inline-flex items-center justify-center w-12 h-12 ${offre.color} rounded-md mb-5`}>
                         <Icon className="w-8 h-8 text-white" />
                       </div>
                       <h3 className="text-2xl font-bold mb-1">{offre.title}</h3>
@@ -140,40 +140,40 @@ const Index = () => {
 
           {/* Avantages Globaux */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            <Card className="hover-lift border-2 hover:border-primary transition-all">
+            <Card className="hover-lift border hover:border-primary transition-all">
               <CardContent className="p-6 text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-secondary rounded-full mb-4">
-                  <Laptop className="w-8 h-8 text-secondary-foreground" />
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-muted rounded-md mb-4">
+                  <Laptop className="w-6 h-6 text-primary" />
                 </div>
                 <h3 className="text-lg font-semibold mb-2">1 Apprenant = 1 Laptop</h3>
                 <p className="text-sm text-muted-foreground">Ordinateur portable offert pour chaque étudiant</p>
               </CardContent>
             </Card>
 
-            <Card className="hover-lift border-2 hover:border-primary transition-all">
+            <Card className="hover-lift border hover:border-primary transition-all">
               <CardContent className="p-6 text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-secondary rounded-full mb-4">
-                  <Award className="w-8 h-8 text-secondary-foreground" />
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-muted rounded-md mb-4">
+                  <Award className="w-6 h-6 text-primary" />
                 </div>
                 <h3 className="text-lg font-semibold mb-2">Permis Gratuit</h3>
                 <p className="text-sm text-muted-foreground">Système de parrainage pour permis gratuit</p>
               </CardContent>
             </Card>
 
-            <Card className="hover-lift border-2 hover:border-primary transition-all">
+            <Card className="hover-lift border hover:border-primary transition-all">
               <CardContent className="p-6 text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-secondary rounded-full mb-4">
-                  <Users className="w-8 h-8 text-secondary-foreground" />
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-muted rounded-md mb-4">
+                  <Users className="w-6 h-6 text-primary" />
                 </div>
                 <h3 className="text-lg font-semibold mb-2">Stage et Insertion</h3>
                 <p className="text-sm text-muted-foreground">Stage professionnel et insertion garantis</p>
               </CardContent>
             </Card>
 
-            <Card className="hover-lift border-2 hover:border-primary transition-all">
+            <Card className="hover-lift border hover:border-primary transition-all">
               <CardContent className="p-6 text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-secondary rounded-full mb-4">
-                  <TrendingUp className="w-8 h-8 text-secondary-foreground" />
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-muted rounded-md mb-4">
+                  <TrendingUp className="w-6 h-6 text-primary" />
                 </div>
                 <h3 className="text-lg font-semibold mb-2">Financement Projet</h3>
                 <p className="text-sm text-muted-foreground">Coopérative pour financer vos projets</p>
@@ -195,21 +195,21 @@ const Index = () => {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-20 bg-gradient-to-br from-primary via-primary-light to-primary text-primary-foreground">
+      <section className="py-20 bg-muted">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-5xl font-bold mb-8">Pourquoi Nous Choisir ?</h2>
             <div className="grid md:grid-cols-3 gap-8 mb-12">
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
-                <div className="text-5xl font-bold text-secondary mb-2">3 en 1</div>
+              <div className="bg-white border border-border rounded-md p-6">
+                <div className="text-5xl font-semibold text-primary mb-2">3 en 1</div>
                 <p className="text-lg">Formation + Permis + Financement dans un seul groupe</p>
               </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
-                <div className="text-5xl font-bold text-secondary mb-2">10 ans</div>
+              <div className="bg-white border border-border rounded-md p-6">
+                <div className="text-5xl font-semibold text-primary mb-2">10 ans</div>
                 <p className="text-lg">D'excellence et d'accompagnement depuis 2015</p>
               </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6">
-                <div className="text-5xl font-bold text-secondary mb-2">Agréé</div>
+              <div className="bg-white border border-border rounded-md p-6">
+                <div className="text-5xl font-semibold text-primary mb-2">Agréé</div>
                 <p className="text-lg">Agrément N° 071/MINEFOPVSG/DFOP/SDGSF/SACD</p>
               </div>
             </div>
@@ -224,14 +224,16 @@ const Index = () => {
               <Button
                 asChild
                 size="lg"
-                className="bg-white/20 hover:bg-white/30 text-white text-lg px-8 py-6"
+                variant="outline"
+                className="bg-white text-primary border-border hover:bg-muted text-lg px-8 py-6"
               >
                 <Link to="/auto-ecole">Auto-École</Link>
               </Button>
               <Button
                 asChild
                 size="lg"
-                className="bg-white/20 hover:bg-white/30 text-white text-lg px-8 py-6"
+                variant="outline"
+                className="bg-white text-primary border-border hover:bg-muted text-lg px-8 py-6"
               >
                 <Link to="/cooperative">Coopérative</Link>
               </Button>
@@ -243,12 +245,12 @@ const Index = () => {
       {/* Contact CTA Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <Card className="max-w-4xl mx-auto bg-secondary text-secondary-foreground">
+          <Card className="max-w-4xl mx-auto border border-border bg-muted text-foreground shadow-none">
             <CardContent className="p-8 md:p-12 text-center">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
                 Prêt à Transformer Votre Avenir ?
               </h2>
-              <p className="text-lg mb-8 opacity-90">
+              <p className="text-lg text-muted-foreground mb-8">
                 Contactez-nous dès aujourd'hui pour plus d'informations sur nos programmes de
                 formation
               </p>
@@ -257,7 +259,7 @@ const Index = () => {
                   asChild
                   size="lg"
                   variant="outline"
-                  className="bg-transparent border-2 border-secondary-foreground text-secondary-foreground hover:bg-secondary-foreground hover:text-secondary text-lg px-8"
+                  className="bg-white border border-border text-foreground hover:bg-muted text-lg px-8"
                 >
                   <a href="tel:+237655511512">Appelez-nous</a>
                 </Button>

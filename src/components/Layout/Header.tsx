@@ -41,14 +41,14 @@ const Header = () => {
   ];
 
   return (
-    <header className="fixed top-0 w-full z-50 bg-white shadow-md">
+    <header className="fixed top-0 w-full z-50 border-b border-border bg-white">
       {/* Top Bar */}
-      <div className="bg-primary text-primary-foreground py-2 px-4 text-sm hidden md:block">
+      <div className="bg-muted text-muted-foreground py-2 px-4 text-xs hidden md:block">
         <div className="container mx-auto flex justify-between items-center">
           <div className="flex items-center gap-6">
             <a
               href="tel:+237655511512"
-              className="flex items-center gap-2 hover:text-secondary transition-colors"
+              className="flex items-center gap-2 hover:text-primary transition-colors"
               aria-label="Appeler CFPAM"
             >
               <Phone className="w-4 h-4" />
@@ -65,20 +65,20 @@ const Header = () => {
       </div>
 
       {/* Main Navigation */}
-      <nav className="container mx-auto px-4 py-4">
+      <nav className="container mx-auto px-4 py-3">
         <div className="flex justify-between items-center">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-20 h-20 bg-white rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform shadow-md border border-gray-200">
+            <div className="w-12 h-12 bg-white rounded-md flex items-center justify-center border border-border">
               <img 
                 src="cfpamlogo.jpg" 
                 alt="CFPAM Logo" 
-                className="w-16 h-16 object-contain"
+                className="w-12 h-12 object-contain"
               />
             </div>
             <div className="hidden sm:block">
-              <h1 className="text-2xl font-bold text-foreground">CFPAM GROUP</h1>
-              <p className="text-sm text-muted-foreground">Excellence & Formation</p>
+              <h1 className="text-lg font-semibold tracking-tight text-foreground">CFPAM GROUP</h1>
+              <p className="text-xs text-muted-foreground">Excellence & Formation</p>
             </div>
           </Link>
 
@@ -88,10 +88,10 @@ const Header = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`px-4 py-2 rounded-md font-medium transition-all ${
+                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                   location.pathname === link.path
-                    ? "bg-primary text-primary-foreground"
-                    : "text-foreground hover:bg-muted"
+                    ? "bg-muted text-primary"
+                    : "text-muted-foreground hover:bg-muted hover:text-foreground"
                 }`}
               >
                 {link.name}

@@ -56,9 +56,9 @@ const Cooperative = () => {
           <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-10">
             {/* Logo */}
             <div className="flex-shrink-0 flex items-center justify-center">
-              <div className="w-36 h-36 rounded-3xl shadow-2xl overflow-hidden border-4 border-cooperative-primary bg-white flex items-center justify-center">
+              <div className="w-36 h-36 rounded-2xl shadow-sm overflow-hidden border border-border bg-white flex items-center justify-center">
                 <img
-                  src="/App/logo-br.png"
+                  src="/App/Business-room-icon.jpeg"
                   alt="Business Room"
                   className="w-full h-full object-contain p-2"
                 />

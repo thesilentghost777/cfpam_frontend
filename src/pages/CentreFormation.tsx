@@ -18,7 +18,7 @@ const CentreFormation = () => {
     "Digital": "digital",
     "Beauté": "beaute",
     "Gestion": "gestion",
-    "Comptabilité": "comptabilite",
+    "Comptabilité et Gestion": "comptabilite",
     "Commerce": "commerce",
     "Informatique": "informatique"
   };
@@ -122,7 +122,7 @@ const CentreFormation = () => {
       color: "formation",
     },
     {
-      name: "Comptabilité",
+      name: "Comptabilité et Gestion",
       durees: "6/12/24 mois | CQP/DQP",
       specialites: [
         {
@@ -251,14 +251,14 @@ const CentreFormation = () => {
           </div>
           <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {diplomes.map((diplome, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow">
+              <div key={index} className="bg-white rounded-xl border border-border p-6 shadow-sm hover:shadow-md transition-shadow">
                 <div className="text-center mb-4">
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-600 rounded-full mb-3">
+                  <div className="inline-flex items-center justify-center w-12 h-12 bg-primary rounded-md mb-3">
                     <Award className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="text-2xl font-bold mb-1">{diplome.title}</h3>
-                  <p className="text-sm text-gray-600 mb-3">{diplome.description}</p>
-                  <div className="text-3xl font-bold text-purple-600">{diplome.price}</div>
+                  <p className="text-sm text-muted-foreground mb-3">{diplome.description}</p>
+                  <div className="text-3xl font-bold text-primary">{diplome.price}</div>
                 </div>
                 <div className="text-sm space-y-2">
                   <p><strong>Admission:</strong> {diplome.details.admission}</p>
@@ -276,7 +276,7 @@ const CentreFormation = () => {
       </section>
 
       {/* Formations Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-muted">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold mb-4">Formations en cours du jour et du soir</h2>
@@ -289,21 +289,21 @@ const CentreFormation = () => {
               const [isOpen, setIsOpen] = React.useState(false);
 
               return (
-                <div key={formationIndex} className="bg-white rounded-lg shadow-lg p-8">
+                <div key={formationIndex} className="bg-white rounded-md border border-border p-8">
                   <div className="flex items-center gap-4 mb-6">
-                    <div className="inline-flex items-center justify-center w-14 h-14 bg-blue-600 rounded-full">
+                    <div className="inline-flex items-center justify-center w-12 h-12 bg-primary rounded-md">
                       <formation.icon className="w-7 h-7 text-white" />
                     </div>
                     <div>
                       <h3 className="text-3xl font-bold">{formation.name}</h3>
-                      <p className="text-gray-600">{formation.durees}</p>
+                      <p className="text-muted-foreground">{formation.durees}</p>
                     </div>
                   </div>
 
-                  <div className="mb-6 bg-blue-50 p-4 rounded-lg border border-blue-200">
+                  <div className="mb-6 bg-muted p-4 rounded-md border border-border">
                     <div className="flex items-center gap-3 mb-3">
-                      <Filter className="w-5 h-5 text-blue-600" />
-                      <label className="font-semibold text-blue-900">Liste des etudiants - Filtrer par année académique</label>
+                      <Filter className="w-5 h-5 text-primary" />
+                      <label className="font-semibold text-foreground">Liste des etudiants - Filtrer par année académique</label>
                     </div>
                     <select
                       className="w-full p-2 border rounded-lg bg-white"
@@ -316,7 +316,7 @@ const CentreFormation = () => {
                       ))}
                     </select>
                     {selectedFilters[formation.name] && (
-                      <div className="mt-3 p-3 bg-white rounded border border-blue-200">
+                      <div className="mt-3 p-3 bg-white rounded-md border border-border">
                         <p className="text-sm text-gray-600 mb-2">
                           <span className="font-semibold">Année sélectionnée:</span> {selectedFilters[formation.name]}
                         </p>
@@ -329,7 +329,7 @@ const CentreFormation = () => {
 
                   {isLoading && (
                     <div className="text-center py-8">
-                      <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto mb-3"></div>
+                      <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto mb-3"></div>
                       <p className="text-sm text-gray-600">Chargement des étudiants...</p>
                     </div>
                   )}
@@ -347,15 +347,15 @@ const CentreFormation = () => {
                   )}
 
                   {!isLoading && !error && etudiants.length > 0 && (
-                    <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-6">
-                      <h4 className="font-bold text-green-900 mb-3">
+                    <div className="bg-muted border border-border rounded-md p-4 mb-6">
+                      <h4 className="font-bold text-foreground mb-3">
                         {etudiants.length} étudiant(s) inscrit(s) pour {selectedFilters[formation.name]}
                       </h4>
                       <div className="space-y-2 max-h-96 overflow-y-auto">
                         {etudiants.map((etudiant, idx) => (
-                          <div key={idx} className="bg-white p-3 rounded border">
+                          <div key={idx} className="bg-white p-3 rounded-md border border-border">
                             <p className="font-semibold">{etudiant.nom_complet}</p>
-                            <div className="text-sm text-gray-600 mt-1">
+                            <div className="text-sm text-muted-foreground mt-1">
                               {etudiant.diplome && <span>• {etudiant.diplome}</span>}
                               {etudiant.date_validation && <span className="ml-3">• Validé le {etudiant.date_validation}</span>}
                               {etudiant.sous_filiere && <span className="ml-3">• {etudiant.sous_filiere}</span>}
@@ -367,7 +367,7 @@ const CentreFormation = () => {
                   )}
 
                   {!isLoading && !error && selectedFilters[formation.name] && etudiants.length === 0 && (
-                    <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 text-center mb-6">
+                    <div className="bg-muted border border-border rounded-md p-4 text-center mb-6">
                       <AlertCircle className="w-8 h-8 text-gray-400 mx-auto mb-2" />
                       <p className="text-gray-600">Aucun étudiant trouvé pour cette année</p>
                     </div>
@@ -379,18 +379,18 @@ const CentreFormation = () => {
                       <div key={specIndex} className="border rounded-lg">
                         <button
                           onClick={() => setIsOpen(!isOpen)}
-                          className="w-full flex items-center justify-between p-4 text-left hover:bg-gray-50 transition-colors"
+                          className="w-full flex items-center justify-between p-4 text-left hover:bg-muted transition-colors"
                         >
                           <span className="text-lg font-semibold">{specialite.nom}</span>
                           <span className="text-2xl">{isOpen ? '−' : '+'}</span>
                         </button>
                         {isOpen && (
                           <div className="p-6 border-t">
-                            <h5 className="font-bold mb-3 text-blue-600">Modules enseignés :</h5>
+                            <h5 className="font-bold mb-3 text-primary">Modules enseignés :</h5>
                             <div className="grid md:grid-cols-2 gap-2">
                               {specialite.modules.map((module, mIdx) => (
                                 <div key={mIdx} className="flex items-start gap-2">
-                                  <CheckCircle className="w-4 h-4 text-purple-600 mt-1 flex-shrink-0" />
+                                  <CheckCircle className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
                                   <span className="text-sm">{module}</span>
                                 </div>
                               ))}
@@ -405,7 +405,7 @@ const CentreFormation = () => {
                     <h4 className="font-bold mb-3">Débouchés professionnels :</h4>
                     <div className="flex flex-wrap gap-2">
                       {formation.debouches.map((debouche, dIdx) => (
-                        <span key={dIdx} className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">
+                        <span key={dIdx} className="px-3 py-1 bg-muted text-primary rounded-md text-sm font-medium">
                           {debouche}
                         </span>
                       ))}
@@ -419,29 +419,29 @@ const CentreFormation = () => {
       </section>
 
       {/* Ateliers Pratiques */}
-      <section className="py-20 bg-gradient-to-r from-purple-600 via-blue-600 to-indigo-700 text-white">
+      <section className="py-20 bg-muted">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-4xl font-bold mb-4">Ateliers Pratiques</h2>
-              <p className="text-xl opacity-90">Formations courtes avec accompagnement entrepreneurial</p>
+              <p className="text-xl text-muted-foreground">Formations courtes avec accompagnement entrepreneurial</p>
             </div>
             <div className="grid md:grid-cols-2 gap-8">
               {ateliersPratiques.map((atelier, index) => (
-                <div key={index} className="bg-white/95 backdrop-blur-sm rounded-lg p-6 text-gray-800">
+                <div key={index} className="bg-white rounded-md border border-border p-6 text-foreground">
                   <div className="text-center mb-4">
-                    <h3 className="text-2xl font-bold text-blue-600 mb-2">{atelier.groupe}</h3>
-                    <p className="text-sm text-gray-600 mb-1">{atelier.duree}</p>
-                    <p className="font-bold text-purple-600">Inscription : {atelier.inscription}</p>
+                    <h3 className="text-2xl font-semibold text-primary mb-2">{atelier.groupe}</h3>
+                    <p className="text-sm text-muted-foreground mb-1">{atelier.duree}</p>
+                    <p className="font-semibold text-primary">Inscription : {atelier.inscription}</p>
                   </div>
                   <div className="space-y-4 mt-6">
                     {atelier.packs.map((pack, pIdx) => (
-                      <div key={pIdx} className="bg-gray-100 rounded-lg p-4">
-                        <h4 className="font-bold mb-2 text-blue-600">Pack {pIdx + 1}: {pack.nom}</h4>
+                      <div key={pIdx} className="bg-muted rounded-md p-4">
+                        <h4 className="font-semibold mb-2 text-primary">Pack {pIdx + 1}: {pack.nom}</h4>
                         <ul className="space-y-1">
                           {pack.activites.map((activite, aIdx) => (
                             <li key={aIdx} className="flex items-start gap-2">
-                              <CheckCircle className="w-4 h-4 text-purple-600 mt-1 flex-shrink-0" />
+                              <CheckCircle className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
                               <span className="text-sm">{activite}</span>
                             </li>
                           ))}
@@ -457,14 +457,14 @@ const CentreFormation = () => {
       </section>
 
       {/* Bonus */}
-      <section className="py-20 bg-gradient-to-br from-blue-600 to-indigo-700 text-white">
+      <section className="py-20 bg-muted">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl font-bold mb-8">Bonus Offerts</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {bonusOfferts.map((bonus, index) => (
-                <div key={index} className="bg-white/10 backdrop-blur-sm rounded-lg p-6 hover:scale-105 transition-transform">
-                  <Laptop className="w-12 h-12 mx-auto mb-3 text-purple-300" />
+                <div key={index} className="bg-white border border-border rounded-xl p-6 transition-shadow hover:shadow-sm">
+                  <Laptop className="w-10 h-10 mx-auto mb-3 text-primary" />
                   <p className="font-semibold text-lg">{bonus}</p>
                 </div>
               ))}
@@ -479,9 +479,9 @@ const CentreFormation = () => {
           <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-10">
             {/* Logo */}
             <div className="flex-shrink-0 flex items-center justify-center">
-              <div className="w-36 h-36 rounded-3xl shadow-2xl overflow-hidden border-4 border-blue-600 bg-white flex items-center justify-center">
+              <div className="w-36 h-36 rounded-2xl shadow-sm overflow-hidden border border-border bg-white flex items-center justify-center">
                 <img
-                  src="/App/logo-elite.png"
+                  src="/App/Elite-icon.png"
                   alt="Application Elite 2.0"
                   className="w-full h-full object-contain p-2"
                 />
@@ -490,20 +490,20 @@ const CentreFormation = () => {
 
             {/* Texte */}
             <div className="flex-1 text-center md:text-left">
-              <span className="inline-block bg-blue-100 text-blue-700 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-3">
+              <span className="inline-block bg-muted text-primary text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-md mb-3">
                 Plateforme officielle
               </span>
               <h2 className="text-3xl font-bold mb-3">
                 Rejoignez Elite 2.0 !
               </h2>
-              <p className="text-gray-500 text-base mb-6">
+              <p className="text-muted-foreground text-base mb-6">
                 Accédez à la plateforme <strong>Elite 2.0</strong> pour gérer votre parcours de formation, suivre vos cours en ligne et rester connecté au CFPAM — depuis n'importe quel appareil, à tout moment.
               </p>
               <a
                 href="https://elite.supahuman.site/elite_inscription.html?ref=EL21CEBD"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-200 text-base"
+                className="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white font-semibold py-3 px-8 rounded-md transition-colors text-base"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -522,7 +522,7 @@ const CentreFormation = () => {
           <div className="flex flex-wrap gap-4 justify-center">
             <button
               onClick={handleInscription}
-              className="px-8 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors text-lg"
+              className="px-8 py-3 bg-primary text-white rounded-md font-semibold hover:bg-primary-dark transition-colors text-lg"
             >
               S'inscrire Maintenant
             </button>

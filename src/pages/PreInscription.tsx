@@ -202,14 +202,14 @@ const PreInscription = () => {
                           <SelectValue placeholder="Sélectionnez une filière" />
                         </SelectTrigger>
                         <SelectContent>
+                          <SelectItem value="comptabilite">Comptabilité et gestion</SelectItem>
                           <SelectItem value="secretariat">Secrétariat</SelectItem>
-                          <SelectItem value="audiovisuel">Audiovisuel</SelectItem>
-                          <SelectItem value="beaute">Beauté</SelectItem>
+                          <SelectItem value="audiovisuel">Infographie</SelectItem>
+                          <SelectItem value="commerce">Douane et transit</SelectItem>
                           <SelectItem value="digital">Digital</SelectItem>
-                          <SelectItem value="gestion">Gestion</SelectItem>
-                          <SelectItem value="comptabilite">Comptabilité</SelectItem>
-                          <SelectItem value="commerce">Commerce</SelectItem>
-                          <SelectItem value="informatique">Informatique</SelectItem>
+                          <SelectItem value="beaute">Décoration et esthétique</SelectItem>
+                          <SelectItem value="auxiliaire_vie">Auxiliaire de vie</SelectItem>
+                          <SelectItem value="elevage">Élevage</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>

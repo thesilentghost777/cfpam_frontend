@@ -108,16 +108,16 @@ const Contact = () => {
 
             {/* Quick Actions */}
             <div>
-              <Card className="h-full bg-gradient-to-br from-primary via-primary-light to-secondary text-white">
+              <Card className="h-full bg-muted text-foreground border border-border shadow-none">
                 <CardContent className="p-8 flex flex-col justify-center h-full">
                   <h2 className="text-3xl font-bold mb-6">Contactez-nous directement</h2>
                   
                   <div className="space-y-4 mb-8">
-                    <p className="text-lg opacity-90">
+                    <p className="text-lg text-muted-foreground">
                       Besoin d'informations ? Notre équipe est disponible pour répondre à toutes vos
                       questions par téléphone, WhatsApp ou email.
                     </p>
-                    <p className="opacity-90">
+                    <p className="text-muted-foreground">
                       Vous pouvez également passer directement à notre centre pour une consultation
                       personnalisée.
                     </p>
@@ -127,7 +127,7 @@ const Contact = () => {
                     <Button
                       asChild
                       size="lg"
-                      className="w-full bg-white text-primary hover:bg-gray-100 text-lg"
+                      className="w-full bg-primary text-primary-foreground hover:bg-primary-dark text-lg"
                     >
                       <a href="tel:+237655511512" className="flex items-center justify-center gap-2">
                         <Phone className="w-5 h-5" />
@@ -155,7 +155,7 @@ const Contact = () => {
                       asChild
                       size="lg"
                       variant="outline"
-                      className="w-full bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary text-lg"
+                      className="w-full bg-white border border-border text-foreground hover:bg-muted text-lg"
                     >
                       <a
                         href="mailto:contact@cfpam-group.cm"
