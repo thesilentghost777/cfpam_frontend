@@ -20,7 +20,7 @@ const Etudiants = () => {
   const [filterType, setFilterType] = useState<"entite" | "filiere">("entite");
   const [filterValue, setFilterValue] = useState("");
 
-  const API_URL = "https://cfpam-api.supahuman.site/api";
+  const API_URL = "https://cfpam-api.tfs237.com/api";
 
   const loadEtudiants = async () => {
     setLoading(true);

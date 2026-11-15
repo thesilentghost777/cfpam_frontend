@@ -50,6 +50,25 @@ const Cooperative = () => {
         </div>
       </section>
 
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-bold text-center mb-6">
+              Découvrez la Coopérative CFPAM en vidéo
+            </h2>
+            <video
+              className="w-full rounded-xl shadow-lg"
+              controls
+              preload="metadata"
+              playsInline
+            >
+              <source src="/Pub/coopca.mp4" type="video/mp4" />
+              Votre navigateur ne prend pas en charge la lecture vidéo.
+            </video>
+          </div>
+        </div>
+      </section>
+
       {/* SECTION APPLICATION BUSINESS ROOM */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">

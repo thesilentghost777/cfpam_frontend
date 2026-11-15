@@ -42,7 +42,7 @@ const PreInscription = () => {
 
     try {
       // Configuration de l'URL du backend - À MODIFIER SELON VOTRE CONFIGURATION
-      const API_URL = "https://cfpam-api.supahuman.site/api";
+      const API_URL = "https://cfpam-api.tfs237.com/api";
 
       
       const response = await fetch(`${API_URL}/cfpam/pre-inscription`, {

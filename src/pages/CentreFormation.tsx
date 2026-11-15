@@ -7,7 +7,7 @@ const CentreFormation = () => {
   const [loading, setLoading] = useState({});
   const [errors, setErrors] = useState({});
 
-  const API_URL = "https://cfpam-api.supahuman.site/api";
+  const API_URL = "https://cfpam-api.tfs237.com/api";
   const isProduction = true;
 
   const annees = ["2020-2021", "2021-2022", "2022-2023", "2023-2024", "2024-2025"];
@@ -239,6 +239,25 @@ const CentreFormation = () => {
               Agrément N° 071/MINEFOPVSG/DFOP/SDGSF/SACD
             </p>
             <p className="text-lg font-semibold">Formations Cours du jour et du Soir</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-bold text-center mb-6">
+              Découvrez nos formations en vidéo
+            </h2>
+            <video
+              className="w-full rounded-xl shadow-lg"
+              controls
+              preload="metadata"
+              playsInline
+            >
+              <source src="/Pub/elite.mp4" type="video/mp4" />
+              Votre navigateur ne prend pas en charge la lecture vidéo.
+            </video>
           </div>
         </div>
       </section>
@@ -500,7 +519,7 @@ const CentreFormation = () => {
                 Accédez à la plateforme <strong>Elite 2.0</strong> pour gérer votre parcours de formation, suivre vos cours en ligne et rester connecté au CFPAM — depuis n'importe quel appareil, à tout moment.
               </p>
               <a
-                href="https://elite.supahuman.site/elite_inscription.html?ref=EL21CEBD"
+                href="https://elite.tfs237.com/elite_inscription.html?ref=EL21CEBD"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-primary hover:bg-primary-dark text-white font-semibold py-3 px-8 rounded-md transition-colors text-base"

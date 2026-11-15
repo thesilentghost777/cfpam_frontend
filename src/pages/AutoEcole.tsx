@@ -28,6 +28,25 @@ const AutoEcole = () => {
         </div>
       </section>
 
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-bold text-center mb-6">
+              Découvrez l'Auto-École Ange Raphaël en vidéo
+            </h2>
+            <video
+              className="w-full rounded-xl shadow-lg"
+              controls
+              preload="metadata"
+              playsInline
+            >
+              <source src="/Pub/ar.mp4" type="video/mp4" />
+              Votre navigateur ne prend pas en charge la lecture vidéo.
+            </video>
+          </div>
+        </div>
+      </section>
+
       {/* SECTION PARRAINAGE */}
       <section className="py-16 bg-autoecole-primary">
         <div className="container mx-auto px-4">
@@ -192,7 +211,7 @@ const AutoEcole = () => {
                 Inscrivez-vous directement via notre application officielle <strong>Ange Raphaël</strong> : suivez votre progression, accédez aux cours, et restez connecté à votre auto-école — depuis votre téléphone, partout et à toute heure.
               </p>
               <a
-                href="https://ange-raphael.supahuman.site/inscription?ref=ANGER-2026-0101001"
+                href="https://ange-raphael.tfs237.com/inscription?ref=ANGER-2026-0101001"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-autoecole-primary hover:bg-autoecole-accent text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-200 text-base"

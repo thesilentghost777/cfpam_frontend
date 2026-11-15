@@ -5,6 +5,9 @@ node_modules/
 dist/
 build/
 
+# Marketing videos deployed separately
+/public/Pub/
+
 # Local environment files
 .env
 .env.local
